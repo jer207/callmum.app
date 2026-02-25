@@ -3,10 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Call Mum</title>
+  <title>Call Mum — Coming Soon</title>
+  <meta name="description" content="For the calls you keep meaning to make. Coming soon to Android." />
+
+  <!-- Flodesk -->
+  <script>
+    (function(w, d, t, h, s, n) {
+      w.FlodeskObject = n;
+      var fn = function() { (w[n].q = w[n].q || []).push(arguments); };
+      w[n] = w[n] || fn;
+      var f = d.getElementsByTagName(t)[0];
+      var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+      var sm = d.createElement(t); sm.async = true; sm.type = 'module';
+      sm.src = h + s + '.mjs' + v; f.parentNode.insertBefore(sm, f);
+      var sn = d.createElement(t); sn.async = true; sn.noModule = true;
+      sn.src = h + s + '.js' + v; f.parentNode.insertBefore(sn, f);
+    })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+  </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Delius&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300;1,400&family=Delius&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after {
@@ -16,181 +34,343 @@
     }
 
     :root {
-      --color-top-bg:    #F4F1DE;
-      --color-bottom-bg: #FAF9F5;
-      --color-text:      #3D405B;
-      --color-eyebrow:   #E07A5F;
+      --bg-main:        #FAF9F5;
+      --bg-card:        #F1EFE4;
+      --terracotta:     #E07A5F;
+      --navy:           #3D405B;
+      --sage:           #81B29A;
+      --amber:          #F2CC8F;
+      --text-secondary: #6B6E85;
+      --white:          #FFFFFF;
 
+      --font-display: 'Delius', cursive;
       --font-body:    'Lato', sans-serif;
-      --font-heading: 'Delius', cursive;
 
-      /* Fluid type scale — clamp(min, preferred, max) */
-      --text-hero:      clamp(1.75rem, 4.5vw, 3.25rem);
-      --text-eyebrow:   clamp(0.65rem, 1.2vw, 0.8rem);
-      --text-h1:        clamp(2rem, 5vw, 3.5rem);
-      --text-subhead:   clamp(1rem, 1.8vw, 1.3rem);
-      --text-body:      clamp(0.9rem, 1.4vw, 1.05rem);
+      --text-hero:    clamp(2rem, 5.5vw, 3.75rem);
+      --text-sub:     clamp(1rem, 2vw, 1.3rem);
+      --text-body:    clamp(0.9rem, 1.4vw, 1.05rem);
+      --text-small:   clamp(0.78rem, 1vw, 0.875rem);
+      --text-eyebrow: clamp(0.6rem, 0.9vw, 0.72rem);
 
-      --max-width: min(720px, 90vw);
-      --line-height-body: 1.75;
+      --max-w:          min(660px, 90vw);
+      --section-pad-x:  clamp(1.5rem, 6vw, 4rem);
+      --section-pad-y:  clamp(2.5rem, 6vw, 5rem);
     }
 
-    html, body {
-      height: 100%;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font-body);
-      color: var(--color-text);
+      color: var(--navy);
+      background-color: var(--bg-main);
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
-      min-height: 100dvh;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── TOP ROW ───────────────────────────────────────────────── */
-    .row-top {
-      background-color: var(--color-top-bg);
-      flex: 2;                   /* 2/3 of viewport */
+    /* ── ANIMATIONS ────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.28s; }
+    .delay-3 { animation-delay: 0.46s; }
+    .delay-4 { animation-delay: 0.64s; }
+    .delay-5 { animation-delay: 0.82s; }
+    .delay-6 { animation-delay: 1s; }
+    .delay-7 { animation-delay: 1.15s; }
+
+    /* ── HEADER ────────────────────────────────────────────────── */
+    .site-header {
+      background-color: var(--bg-card);
+      padding: clamp(1.25rem, 3vw, 2rem) var(--section-pad-x);
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 3rem);
+      align-items: center;
+      border-bottom: 1px solid rgba(61, 64, 91, 0.06);
     }
 
-    .row-top__inner {
-      max-width: var(--max-width);
-      width: 100%;
+    .logo {
+      height: clamp(26px, 3.5vw, 38px);
+      width: auto;
+      display: block;
+    }
+
+    /* ── HERO ──────────────────────────────────────────────────── */
+    .hero {
+      background-color: var(--bg-card);
+      padding: var(--section-pad-y) var(--section-pad-x);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
     }
 
-    .hero-headline {
-      font-family: var(--font-heading);
-      font-weight: 400;
-      font-size: var(--text-hero);
-      line-height: 1.25;
-      letter-spacing: -0.01em;
-      color: var(--color-text);
-
-      /* Subtle decorative rule above */
-      padding-top: 1.5em;
-      position: relative;
-    }
-
-    .hero-headline::before {
-      content: '';
-      display: block;
-      width: 2.5rem;
-      height: 2px;
-      background-color: var(--color-eyebrow);
-      margin: 0 auto 1.25em;
-      opacity: 0.7;
-    }
-
-    /* ── BOTTOM ROW ────────────────────────────────────────────── */
-    .row-bottom {
-      background-color: var(--color-bottom-bg);
-      flex: 1;                   /* 1/3 of viewport */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 3rem);
-    }
-
-    .row-bottom__inner {
-      max-width: var(--max-width);
+    .hero__inner {
+      max-width: var(--max-w);
       width: 100%;
     }
 
-    .eyebrow {
-      font-family: var(--font-heading);
-      font-weight: 500;
+    .hero__eyebrow {
+      display: inline-block;
+      font-family: var(--font-display);
       font-size: var(--text-eyebrow);
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--color-eyebrow);
-      margin-bottom: 0.6em;
+      color: var(--terracotta);
+      margin-bottom: 1.4em;
     }
 
-    .app-name {
-      font-family: var(--font-heading);
+    .hero__headline {
+      font-family: var(--font-display);
       font-weight: 400;
-      font-size: var(--text-h1);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--color-text);
-      margin-bottom: 0.35em;
+      font-size: var(--text-hero);
+      line-height: 1.2;
+      color: var(--navy);
+      letter-spacing: -0.015em;
+      margin-bottom: 0.65em;
     }
 
-    .subheading {
+    .hero__sub {
       font-family: var(--font-body);
-      font-size: var(--text-subhead);
+      font-size: var(--text-sub);
       font-style: italic;
-      color: var(--color-text);
-      opacity: 0.75;
-      margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      letter-spacing: 0.01em;
     }
 
-    .divider {
-      width: 2rem;
+    /* ── DIVIDER ───────────────────────────────────────────────── */
+    .section-rule {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
       height: 1px;
-      background-color: var(--color-eyebrow);
-      opacity: 0.45;
-      margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
+      background: linear-gradient(90deg, transparent, rgba(224,122,95,0.25) 30%, rgba(224,122,95,0.25) 70%, transparent);
     }
 
-    .body-text {
+    /* ── BODY SECTION ──────────────────────────────────────────── */
+    .body-section {
+      background-color: var(--bg-main);
+      padding: var(--section-pad-y) var(--section-pad-x);
+      display: flex;
+      justify-content: center;
+    }
+
+    .body-section__inner {
+      max-width: var(--max-w);
+      width: 100%;
+    }
+
+    .prose p {
       font-family: var(--font-body);
       font-size: var(--text-body);
-      line-height: var(--line-height-body);
-      color: var(--color-text);
-      opacity: 0.85;
-      max-width: 58ch;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--navy);
     }
 
-    /* ── RESPONSIVE TWEAKS ─────────────────────────────────────── */
-
-    /* On very short screens (landscape phone), relax the rigid 2/3–1/3 split
-       and let both sections be tall enough for their content */
-    @media (max-height: 500px) {
-      body {
-        min-height: unset;
-      }
-      .row-top,
-      .row-bottom {
-        flex: unset;
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
-      }
+    .prose p + p {
+      margin-top: 1.15em;
     }
 
-    /* On narrow screens, tighten body text measure */
+    .prose strong {
+      font-weight: 400;
+      color: var(--navy);
+    }
+
+    /* ── COMING SOON BADGE ─────────────────────────────────────── */
+    .coming-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      margin-top: 2em;
+      padding: 0.45em 0.9em;
+      background-color: rgba(129, 178, 154, 0.12);
+      border: 1px solid rgba(129, 178, 154, 0.3);
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+      font-weight: 400;
+      color: var(--sage);
+      letter-spacing: 0.03em;
+    }
+
+    .coming-soon__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--sage);
+      flex-shrink: 0;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.35; transform: scale(0.7); }
+    }
+
+    /* ── SIGNUP SECTION ────────────────────────────────────────── */
+    .signup-section {
+      background-color: var(--bg-main);
+      padding: 0 var(--section-pad-x) var(--section-pad-y);
+      display: flex;
+      justify-content: center;
+    }
+
+    .signup-section__inner {
+      max-width: var(--max-w);
+      width: 100%;
+      padding-top: clamp(1.5rem, 3vw, 2.5rem);
+      border-top: 1px solid rgba(61, 64, 91, 0.08);
+    }
+
+    /* Flodesk container */
+    #fd-form-699f67facbd401f52014c015 {
+      width: 100%;
+    }
+
+    /* ── FEATUREBASE LINK ──────────────────────────────────────── */
+    .feedback-link-wrap {
+      padding: 0 var(--section-pad-x) clamp(2rem, 4vw, 3.5rem);
+      display: flex;
+      justify-content: center;
+    }
+
+    .feedback-link-inner {
+      max-width: var(--max-w);
+      width: 100%;
+    }
+
+    .feedback-link {
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+      font-weight: 300;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(107, 110, 133, 0.28);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .feedback-link:hover {
+      color: var(--terracotta);
+      border-color: rgba(224, 122, 95, 0.5);
+    }
+
+    /* ── FOOTER ────────────────────────────────────────────────── */
+    .site-footer {
+      margin-top: auto;
+      background-color: var(--bg-card);
+      padding: clamp(2rem, 4vw, 3rem) var(--section-pad-x);
+      border-top: 1px solid rgba(61, 64, 91, 0.07);
+    }
+
+    .site-footer__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .footer-text {
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      opacity: 0.8;
+    }
+
+    .footer-copy {
+      margin-top: 1.5em;
+      font-family: var(--font-body);
+      font-size: clamp(0.65rem, 0.85vw, 0.75rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      opacity: 0.4;
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────── */
     @media (max-width: 480px) {
-      .body-text {
-        max-width: 100%;
-      }
+      .prose p { font-size: 0.95rem; }
+    }
+
+    @media (max-height: 500px) {
+      .hero { padding-top: 2rem; padding-bottom: 2rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP ROW -->
-  <section class="row-top">
-    <div class="row-top__inner">
-      <h2 class="hero-headline">Before anything else, call your mother right now&hellip;</h2>
+  <!-- HEADER -->
+  <header class="site-header">
+    <img src="callmum-logo-wide.svg" alt="Call Mum" class="logo" />
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <span class="fade-up delay-1 hero__eyebrow">Coming Soon</span>
+      <h1 class="fade-up delay-2 hero__headline">Some people are worth<br>a phone call.</h1>
+      <p class="fade-up delay-3 hero__sub">For the calls you keep meaning to make.</p>
     </div>
   </section>
 
-  <!-- BOTTOM ROW -->
-  <section class="row-bottom">
-    <div class="row-bottom__inner">
-      <p class="eyebrow">Coming Soon</p>
-      <h1 class="app-name">Call Mum</h1>
-      <p class="subheading">An app for those who care</p>
-      <div class="divider"></div>
-      <p class="body-text">I struggle to stay in touch with those I care about. It's not lack of caring, we're not estranged, and I'm not physically blocked. For whatever reason, I am susceptible to my attention being swept up by what's right in front of me.</p>
-      <p class="body-text" style="margin-top: 1em;">Recurring meetings on my calendar, to do lists, haven't worked. The timing of alerts was always off. So I am building this app to remind me to call my mother. This app will notify me when it matters.</p>
+  <div class="section-rule"></div>
+
+  <!-- BODY COPY -->
+  <section class="body-section">
+    <div class="body-section__inner prose">
+      <p class="fade-up delay-4">
+        Calendars, to-do lists, task managers — they're great at reminding you to buy milk. They're less good at making you feel like calling someone actually matters. When life gets busy, the people who aren't right in front of you have a way of quietly slipping to the back of your mind. Not because you don't care. Just because nothing is pushing back hard enough.
+      </p>
+      <p class="fade-up delay-5">
+        CallMum lets you add the people in your life worth staying in touch with, and set a personal check-in timeframe for each one. When it's been too long, it starts reminding you. Then it reminds you again. <strong>The reminders don't give up — they just never make you feel bad about it.</strong> Think of it less like a task manager, and more like something quietly insisting you do the thing you already wanted to do.
+      </p>
+      <span class="fade-up delay-6 coming-soon">
+        <span class="coming-soon__dot"></span>
+        Coming soon to Android
+      </span>
     </div>
   </section>
+
+  <!-- EMAIL SIGNUP -->
+  <section class="signup-section">
+    <div class="signup-section__inner fade-up delay-7">
+      <div id="fd-form-699f67facbd401f52014c015"></div>
+      <script>
+        window.fd('form', {
+          formId: '699f67facbd401f52014c015',
+          containerEl: '#fd-form-699f67facbd401f52014c015'
+        });
+      </script>
+    </div>
+  </section>
+
+  <!-- FEATUREBASE LINK -->
+  <div class="feedback-link-wrap">
+    <div class="feedback-link-inner fade-up delay-7">
+      <a class="feedback-link" href="https://callmum.featurebase.app" target="_blank" rel="noopener noreferrer">
+        See what's planned, or share an idea →
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="footer-text">
+        CallMum doesn't require an account and has no access to the internet — everything it needs to work stays on your phone. No call logs, no contact details, and no personal information of any kind is ever transmitted anywhere. There are no ads, no in-app purchases, and no interest in your data. This app exists to do one small thing well, and nothing else.
+      </p>
+      <p class="footer-copy">© 2025 Call Mum</p>
+    </div>
+  </footer>
 
 </body>
 </html>
