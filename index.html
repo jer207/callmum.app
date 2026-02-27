@@ -98,11 +98,10 @@
     /* ── HEADER ── */
     .site-header {
       background-color: var(--bg-main);
-      padding: clamp(1.25rem, 2.5vw, 1.75rem) var(--section-pad-x);
+      padding: clamp(2.5rem, 5vw, 4rem) var(--section-pad-x);
       display: flex;
       justify-content: center;
       align-items: center;
-      border-bottom: 1px solid rgba(61, 64, 91, 0.08);
     }
 
     .logo {
@@ -114,7 +113,7 @@
     /* ── HERO TAGLINE ── */
     .hero {
       background-color: var(--bg-main);
-      padding: clamp(2rem, 4vw, 3.5rem) var(--section-pad-x) clamp(1rem, 2vw, 2rem);
+      padding: 0 var(--section-pad-x) clamp(1.5rem, 3vw, 2.5rem);
       text-align: center;
     }
 
@@ -138,13 +137,21 @@
       color: var(--text-secondary);
     }
 
-    /* ── DIVIDER ── */
-    .divider {
+    /* ── SEPARATORS ── */
+    .sep {
       width: 60px;
       height: 2px;
-      background-color: var(--sage-dark);
-      opacity: 0.5;
-      margin: 0 auto;
+      background-color: #6E8733;
+      flex-shrink: 0;
+    }
+    /* Centered separator below hero intro */
+    .sep--center {
+      margin: 0 auto clamp(2rem, 5vw, 4rem);
+    }
+    /* Left-aligned separator inside text block, after paragraphs */
+    .sep--left {
+      margin-top: 0; /* spacing handled by text-block gap */
+      margin-left: 0;
     }
 
     /* ── SPLIT SECTIONS ── */
@@ -220,7 +227,7 @@
 
     /* ── EMAIL SIGNUP SECTION ── */
     .signup-section {
-      background-color: var(--sage-bg);
+      background-color: #DFE8CA;
       padding: clamp(3rem, 6vw, 5rem) var(--section-pad-x);
       text-align: center;
     }
@@ -284,7 +291,7 @@
     <h1 class="hero__headline fade-up delay-2">A gentle but persistent reminder app for the people worth calling.<br>Add contacts, set your own check-in frequency, and let CallMum do the nagging so you don't have to feel guilty about forgetting.</h1>
   </section>
 
-  <div class="divider fade-up delay-3"></div>
+  <div class="sep sep--center fade-up delay-3"></div>
 
   <!-- SECTION 1: phone left, text right -->
   <section class="split-section">
@@ -292,15 +299,14 @@
       <div class="phone-wrap fade-up delay-3">
         <img src="cm-screen1.png" alt="CallMum home screen" class="phone-img" />
       </div>
-      <div class="text-block fade-up delay-4">
-        <span class="text-block__eyebrow">Coming Soon</span>
-        <p>Calendars, to-do lists, task managers — they're great at reminding you to buy milk. They're less good at making you feel like calling someone actually matters. When life gets busy, the people who aren't right in front of you have a way of quietly slipping to the back of your mind. Not because you don't care. Just because nothing is pushing back hard enough.</p>
-        <p>CallMum lets you add the people in your life worth staying in touch with, and set a personal check-in timeframe for each one. When it's been too long, it starts reminding you. Then it reminds you again. <strong>The reminders don't give up — they just never make you feel bad about it.</strong> Think of it less like a task manager, and more like something quietly insisting you do the thing you already wanted to do.</p>
-      </div>
+        <div class="text-block fade-up delay-4">
+          <span class="text-block__eyebrow">Coming Soon</span>
+          <p>Calendars, to-do lists, task managers — they're great at reminding you to buy milk. They're less good at making you feel like calling someone actually matters. When life gets busy, the people who aren't right in front of you have a way of quietly slipping to the back of your mind. Not because you don't care. Just because nothing is pushing back hard enough.</p>
+          <p>CallMum lets you add the people in your life worth staying in touch with, and set a personal check-in timeframe for each one. When it's been too long, it starts reminding you. Then it reminds you again. <strong>The reminders don't give up — they just never make you feel bad about it.</strong> Think of it less like a task manager, and more like something quietly insisting you do the thing you already wanted to do.</p>
+          <div class="sep sep--left"></div>
+        </div>
     </div>
   </section>
-
-  <div class="divider fade-up"></div>
 
   <!-- SECTION 2: text left, phone right -->
   <section class="split-section split-section--reverse">
@@ -308,10 +314,11 @@
       <div class="phone-wrap fade-up delay-3">
         <img src="cm-screen2.png" alt="CallMum — no ads, no data collection" class="phone-img" />
       </div>
-      <div class="text-block fade-up delay-4">
-        <span class="text-block__eyebrow">This app has one job</span>
-        <p>CallMum doesn't require an account and has no access to the internet — everything it needs to work stays on your phone. No call logs, no contact details, and no personal information of any kind is ever transmitted anywhere. There are no ads, no in-app purchases, and no interest in your data. This app exists to do one small thing well, and nothing else.</p>
-      </div>
+        <div class="text-block fade-up delay-4">
+          <span class="text-block__eyebrow">This app has one job</span>
+          <p>CallMum doesn't require an account and has no access to the internet — everything it needs to work stays on your phone. No call logs, no contact details, and no personal information of any kind is ever transmitted anywhere. There are no ads, no in-app purchases, and no interest in your data. This app exists to do one small thing well, and nothing else.</p>
+          <div class="sep sep--left"></div>
+        </div>
     </div>
   </section>
 
