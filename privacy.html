@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — CallMum</title>
+  <meta name="description" content="CallMum's privacy policy. Written for humans." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Rubik:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-main:        #FAF9F5;
+      --terracotta:     #f89061;
+      --navy:           #1A2F38;
+      --text-secondary: #4a6370;
+      --green:          #6E8733;
+      --white:          #FFFFFF;
+      --border:         rgba(61, 64, 91, 0.12);
+
+      --font-display: 'Lora', Georgia, serif;
+      --font-body:    'Rubik', sans-serif;
+
+      --section-pad-x: clamp(1.5rem, 6vw, 5rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--navy);
+      background-color: var(--bg-main);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background-color: var(--bg-main);
+      padding: 1.25rem var(--section-pad-x);
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      flex: 1;
+      padding: clamp(2.5rem, 6vw, 4.5rem) var(--section-pad-x);
+      display: flex;
+      justify-content: center;
+    }
+
+    .policy-body {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    /* Page title */
+    .policy-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .policy-date {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Intro paragraph */
+    .policy-intro {
+      font-size: clamp(0.9rem, 1.4vw, 1rem);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--navy);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Sections */
+    .policy-section {
+      margin-bottom: 2.25rem;
+    }
+
+    .policy-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 600;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .policy-section p {
+      font-size: clamp(0.875rem, 1.3vw, 0.95rem);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--navy);
+    }
+
+    .policy-section p + p {
+      margin-top: 0.85em;
+    }
+
+    /* Permission list */
+    .permission-list {
+      list-style: none;
+      margin: 0.75rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .permission-list li {
+      font-size: clamp(0.875rem, 1.3vw, 0.95rem);
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--navy);
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .permission-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--terracotta);
+      flex-shrink: 0;
+    }
+
+    .permission-list li strong {
+      font-weight: 400;
+      color: var(--navy);
+    }
+
+    /* Divider between sections */
+    .policy-section + .policy-section {
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Contact link */
+    a {
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(248, 144, 97, 0.3);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-color: var(--terracotta);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background-color: var(--bg-main);
+      padding: clamp(1.25rem, 2.5vw, 2rem) var(--section-pad-x);
+      border-top: 1px solid rgba(61, 64, 91, 0.08);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer p {
+      font-family: var(--font-body);
+      font-size: clamp(0.7rem, 1vw, 0.8rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+
+    .site-footer a {
+      font-family: var(--font-body);
+      font-size: clamp(0.7rem, 1vw, 0.8rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      opacity: 0.6;
+      border-bottom: 1px solid rgba(74, 99, 112, 0.25);
+      text-decoration: none;
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
+    }
+
+    .site-footer a:hover {
+      opacity: 1;
+    }
+
+    .footer-dot {
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="/"><img src="callmum-logo-wide.svg" alt="CallMum" class="logo" /></a>
+  </header>
+
+  <!-- CONTENT -->
+  <main>
+    <div class="policy-body">
+
+      <h1 class="policy-title">Privacy Policy</h1>
+      <p class="policy-date">Last updated: February 2026</p>
+
+      <p class="policy-intro">CallMum is built on a simple principle: your personal information belongs to you, not us. This policy explains what data the app and website use, and why. We've written it in plain English on purpose — if something isn't clear, email us and we'll explain it.</p>
+
+      <div class="policy-section">
+        <h2>The App</h2>
+        <p><strong>Everything stays on your phone.</strong> Everything the app does happens on your device. Your contacts, call history, and reminder settings are stored locally and never leave your phone. We don't have servers. We don't collect analytics. We don't know who you are, who you're calling, or how often you use the app.</p>
+        <p><strong>Permissions the app asks for:</strong></p>
+        <ul class="permission-list">
+          <li><strong>Contacts</strong> — used only to let you pick someone from your address book when adding them to your list. We read the name and phone number you select, and nothing else. Your full contacts list is never accessed or stored.</li>
+          <li><strong>Call log</strong> — used to detect when you've called someone on your list, so reminders can reset automatically. This data is read locally on your device and is never transmitted anywhere.</li>
+          <li><strong>Notifications</strong> — used to send you reminders. You can turn these off at any time in your phone's settings.</li>
+        </ul>
+        <p><strong>Third-party services.</strong> The app uses Google's WorkManager and AlarmManager for scheduling reminders. These are standard Android system services built into your phone — no data is sent to Google through our use of them.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>The Website and Email List</h2>
+        <p>If you've signed up to hear about the app launch, your email address is stored with <a href="https://flodesk.com" target="_blank" rel="noopener noreferrer">Flodesk</a>, the email platform we use. We'll use it to let you know when the app launches, and to send occasional updates if you opt in to those. We will never sell your email address or share it with third parties. You can unsubscribe at any time using the link in any email we send.</p>
+        <p>The website itself doesn't use cookies or tracking of any kind.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>Feedback Forum</h2>
+        <p>If you create an account on our feedback site (<a href="https://callmum.featurebase.app/" target="_blank" rel="noopener noreferrer">callmum.featurebase.app</a>), that account is managed by <a href="https://featurebase.app" target="_blank" rel="noopener noreferrer">Featurebase</a>. Their privacy policy covers how they handle that data — we only see the feedback and feature requests you choose to submit.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>Changes to This Policy</h2>
+        <p>If anything here changes in a meaningful way, we'll update the date at the top. If you have questions, reach us at <a href="mailto:hello@callmum.app">hello@callmum.app</a>.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>Just a mama's boy from Maine.</p>
+    <span class="footer-dot">·</span>
+    <a href="/privacy.html">Privacy Policy</a>
+  </footer>
+
+</body>
+</html>
