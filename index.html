@@ -162,13 +162,11 @@
       background-color: #6E8733;
       flex-shrink: 0;
     }
-    /* Centered separator below hero intro */
     .sep--center {
       margin: 0 auto clamp(2rem, 5vw, 4rem);
     }
-    /* Left-aligned separator inside text block, after paragraphs */
     .sep--left {
-      margin-top: 0; /* spacing handled by text-block gap */
+      margin-top: 0;
       margin-left: 0;
     }
 
@@ -188,7 +186,6 @@
       align-items: center;
     }
 
-    /* Section 2 reverses col order */
     .split-section--reverse .split-section__inner {
       direction: rtl;
     }
@@ -255,7 +252,6 @@
       margin: 0 auto;
     }
 
-    /* Flodesk container */
     #fd-form-699f67facbd401f52014c015 {
       width: 100%;
     }
@@ -265,6 +261,11 @@
       background-color: var(--bg-main);
       padding: clamp(1.25rem, 2.5vw, 2rem) var(--section-pad-x);
       border-top: 1px solid rgba(61, 64, 91, 0.08);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
       text-align: center;
     }
 
@@ -276,7 +277,29 @@
       opacity: 0.6;
     }
 
-    /* ── RESPONSIVE: STACK ON MOBILE ── */
+    .site-footer a {
+      font-family: var(--font-body);
+      font-size: clamp(0.7rem, 1vw, 0.8rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      opacity: 0.6;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(74, 99, 112, 0.25);
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
+    }
+
+    .site-footer a:hover {
+      opacity: 1;
+    }
+
+    .footer-dot {
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+      opacity: 0.4;
+    }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
       .split-section__inner {
         grid-template-columns: 1fr;
@@ -286,7 +309,6 @@
         direction: ltr;
       }
 
-      /* On mobile, always show phone first */
       .split-section--reverse .phone-wrap {
         order: -1;
       }
@@ -320,7 +342,7 @@
         <div class="text-block fade-up delay-4">
           <span class="text-block__eyebrow">Coming Soon</span>
           <p>Calendars, to-do lists, task managers — they're great at reminding you to buy milk. They're less good at making you feel like calling someone actually matters. When life gets busy, the people who aren't right in front of you have a way of quietly slipping to the back of your mind. Not because you don't care. Just because nothing is pushing back hard enough.</p>
-          <p>CallMum lets you add the people in your life worth staying in touch with, and set a personal check-in timeframe for each one. When it's been too long, it starts reminding you. Then it reminds you again. The reminders don't make you feel bad, but they don’t give up either. Think of it less like a task manager, and more like something quietly insisting you do the thing you already wanted to do.</p>
+          <p>CallMum lets you add the people in your life worth staying in touch with, and set a personal check-in timeframe for each one. When it's been too long, it starts reminding you. Then it reminds you again. The reminders don't make you feel bad, but they don't give up either. Think of it less like a task manager, and more like something quietly insisting you do the thing you already wanted to do.</p>
           <a href="https://callmum.featurebase.app/" target="_blank" rel="noopener noreferrer" class="feedback-link">See what's planned, or share an idea →</a>
           <div class="sep sep--left"></div>
         </div>
@@ -357,6 +379,8 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <p>Just a mama's boy from Maine.</p>
+    <span class="footer-dot">·</span>
+    <a href="/privacy.html">Privacy Policy</a>
   </footer>
 
 </body>
